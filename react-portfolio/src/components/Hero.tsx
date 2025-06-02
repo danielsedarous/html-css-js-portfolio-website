@@ -5,6 +5,7 @@ import { TypeAnimation } from "react-type-animation";
 import { FaGithub, FaLinkedin, FaArrowDown } from "react-icons/fa";
 import { Link as ScrollLink } from "react-scroll";
 import { useNavigate } from "react-router-dom";
+import { getAssetPath } from "../utils/assetUtils";
 
 const HeroSection = styled.section`
   min-height: 100vh;
@@ -261,7 +262,10 @@ const Hero: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() =>
-                window.open("/assets/Sedarous_Daniel_Resume.pdf", "_blank")
+                window.open(
+                  getAssetPath("/assets/Danny_s_Resume.pdf"),
+                  "_blank"
+                )
               }
             >
               Download CV
@@ -305,7 +309,10 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <HeroImage src="/assets/danny_profile.png" alt="Daniel Sedarous" />
+          <HeroImage
+            src={getAssetPath("/assets/danny_profile.png")}
+            alt="Daniel Sedarous"
+          />
         </HeroImageWrapper>
       </HeroContainer>
 

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
+import { getAssetPath } from "../utils/assetUtils";
 import {
   FaGraduationCap,
   FaLaptopCode,
@@ -216,7 +217,7 @@ const About: React.FC = () => {
                 transition={{ duration: 0.8 }}
               >
                 <AboutImage
-                  src="/assets/brown-profile-pic.jpeg"
+                  src={getAssetPath("/assets/brown-profile-pic.jpeg")}
                   alt="Daniel Sedarous"
                 />
                 <ImageDecoration />

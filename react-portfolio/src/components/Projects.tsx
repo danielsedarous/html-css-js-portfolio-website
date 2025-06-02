@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { getAssetPath } from "../utils/assetUtils";
 
 const ProjectsSection = styled.section`
   padding: 100px 0;
@@ -207,7 +208,7 @@ const Projects: React.FC = () => {
       id: 1,
       title: "Brown Bites",
       category: "Web App",
-      image: "/assets/Screen Shot 2024-01-03 at 2.30.49 AM.jpeg",
+      image: getAssetPath("/assets/Screen Shot 2024-01-03 at 2.30.49 AM.jpeg"),
       description:
         "A food delivery platform designed specifically for the Brown University community, connecting students with local restaurants and on-campus dining options.",
       techStack: ["React", "Node.js", "MongoDB", "Express"],
@@ -220,7 +221,7 @@ const Projects: React.FC = () => {
       id: 2,
       title: "Maps",
       category: "Software",
-      image: "/assets/Maps-image (2).png",
+      image: getAssetPath("/assets/Maps-image (2).png"),
       description:
         "A mapping application that provides directions and location services with customized algorithms for finding the shortest path between destinations.",
       techStack: ["Java", "Algorithms", "Data Structures"],
@@ -232,7 +233,7 @@ const Projects: React.FC = () => {
       id: 3,
       title: "Portfolio Website",
       category: "Web Design",
-      image: "/assets/danny_final.png",
+      image: getAssetPath("/assets/danny_final.png"),
       description:
         "A modern React-based portfolio website showcasing projects and skills with interactive UI elements and animations.",
       techStack: ["React", "TypeScript", "Styled Components", "Framer Motion"],
