@@ -183,19 +183,6 @@ const SocialIcon = styled(motion.a)`
   }
 `;
 
-const ScrollIndicator = styled(motion.div)`
-  position: absolute;
-  bottom: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
-  cursor: pointer;
-
-  svg {
-    font-size: 2rem;
-    color: var(--primary-color);
-  }
-`;
-
 const Hero: React.FC = () => {
   const navigate = useNavigate();
 
@@ -315,26 +302,6 @@ const Hero: React.FC = () => {
           />
         </HeroImageWrapper>
       </HeroContainer>
-
-      <ScrollIndicator
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.5,
-          delay: 1.5,
-          repeat: Infinity,
-          repeatType: "reverse",
-          repeatDelay: 0.5,
-        }}
-        as={ScrollLink}
-        to="about"
-        spy={true}
-        smooth={true}
-        offset={-80}
-        duration={500}
-      >
-        <FaArrowDown />
-      </ScrollIndicator>
     </HeroSection>
   );
 };

@@ -15,6 +15,8 @@ import {
   FaGraduationCap,
 } from "react-icons/fa";
 import { SiTypescript, SiJavascript } from "react-icons/si";
+import { BsBuilding, BsBook } from "react-icons/bs";
+import { getAssetPath } from "../utils/assetUtils";
 
 const ExperienceSection = styled.section`
   padding: 100px 0;
@@ -26,7 +28,7 @@ const ExperienceContainer = styled.div`
   padding: 0 2rem;
 `;
 
-const ExperienceHeader = styled.div`
+const SectionHeader = styled.div`
   text-align: center;
   margin-bottom: 4rem;
 `;
@@ -156,6 +158,112 @@ const SkillItemLevel = styled.p`
   color: var(--dark-gray);
 `;
 
+const ExperienceCard = styled(motion.div)`
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2.5rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+const ExperienceCardHeader = styled.div`
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+`;
+
+const CompanyLogo = styled.div`
+  font-size: 2.5rem;
+  margin-right: 1.5rem;
+  color: var(--primary-color);
+  opacity: 0.9;
+  min-width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ExperienceInfo = styled.div`
+  flex: 1;
+`;
+
+const CompanyName = styled.h3`
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+`;
+
+const Position = styled.h4`
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.4;
+`;
+
+const Duration = styled.p`
+  font-size: 1rem;
+  color: var(--dark-gray);
+  font-weight: 400;
+`;
+
+const ExperienceDescription = styled.div`
+  margin-top: 1.5rem;
+  color: var(--text-color);
+  line-height: 1.6;
+`;
+
+const BulletList = styled.ul`
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 1rem;
+`;
+
+const BulletItem = styled.li`
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  font-size: 1.05rem;
+
+  &:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+
+  strong {
+    color: var(--heading-color);
+    font-weight: 600;
+  }
+`;
+
+const ResearchPoster = styled.img`
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 12px;
+  margin: 2rem auto 0;
+  display: block;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+`;
+
 const Experience: React.FC = () => {
   const [activeTab, setActiveTab] = React.useState("skills");
 
@@ -177,7 +285,7 @@ const Experience: React.FC = () => {
   return (
     <ExperienceSection id="experience">
       <ExperienceContainer>
-        <ExperienceHeader>
+        <SectionHeader>
           <InView threshold={0.3} triggerOnce>
             {({ inView, ref }) => (
               <motion.div
@@ -191,7 +299,7 @@ const Experience: React.FC = () => {
               </motion.div>
             )}
           </InView>
-        </ExperienceHeader>
+        </SectionHeader>
 
         <TabsContainer>
           <Tab
@@ -199,6 +307,12 @@ const Experience: React.FC = () => {
             onClick={() => setActiveTab("skills")}
           >
             Technical Skills
+          </Tab>
+          <Tab
+            active={activeTab === "work"}
+            onClick={() => setActiveTab("work")}
+          >
+            Work Experience
           </Tab>
           <Tab
             active={activeTab === "education"}
@@ -373,6 +487,151 @@ const Experience: React.FC = () => {
           </InView>
         )}
 
+        {activeTab === "work" && (
+          <InView threshold={0.1} triggerOnce>
+            {({ inView, ref }) => (
+              <motion.div
+                ref={ref}
+                variants={containerVariants}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+              >
+                <ExperienceCard variants={cardVariants}>
+                  <ExperienceCardHeader>
+                    <CompanyLogo>
+                      <BsBuilding />
+                    </CompanyLogo>
+                    <ExperienceInfo>
+                      <CompanyName>
+                        Siemens Digital Industries Software
+                      </CompanyName>
+                      <Position>Software Development Intern</Position>
+                      <Duration>May 2024 - Present</Duration>
+                    </ExperienceInfo>
+                  </ExperienceCardHeader>
+                  <ExperienceDescription>
+                    <BulletList>
+                      <BulletItem>
+                        Currently enhancing{" "}
+                        <strong>Teamcenter's AI Copilot</strong> with advanced
+                        features including like/dislike feedback system,
+                        real-time text streaming capabilities, and an optimized
+                        loading interface, resulting in a projected{" "}
+                        <strong>40% improvement</strong> in user satisfaction.
+                      </BulletItem>
+                      <BulletItem>
+                        Previously developed and integrated an innovative{" "}
+                        <strong>AI Copilot</strong> into Siemens' Teamcenter
+                        product lifecycle management suite using{" "}
+                        <strong>React</strong> and <strong>JavaScript</strong>,
+                        which improved end-user workflow efficiency by{" "}
+                        <strong>50%</strong>.
+                      </BulletItem>
+                      <BulletItem>
+                        Architected a versatile UI component framework capable
+                        of hosting{" "}
+                        <strong>10 distinct AI-driven features</strong>,
+                        establishing a foundation for scalable AI integration
+                        within Teamcenter.
+                      </BulletItem>
+                      <BulletItem>
+                        Received distinguished recognition by winning{" "}
+                        <strong>3rd place among 200 interns</strong> at the
+                        Siemens Intern Impact Awards for innovative
+                        contributions to AI design and implementation.
+                      </BulletItem>
+                    </BulletList>
+                  </ExperienceDescription>
+                </ExperienceCard>
+
+                <ExperienceCard variants={cardVariants}>
+                  <ExperienceCardHeader>
+                    <CompanyLogo>
+                      <BsBook />
+                    </CompanyLogo>
+                    <ExperienceInfo>
+                      <CompanyName>Brown University</CompanyName>
+                      <Position>
+                        Research Assistant - Department of Computer Science
+                      </Position>
+                      <Duration>January 2025 - Present</Duration>
+                    </ExperienceInfo>
+                  </ExperienceCardHeader>
+                  <ExperienceDescription>
+                    <BulletList>
+                      <BulletItem>
+                        Collaborating with{" "}
+                        <strong>Professor Diana Freed</strong> on groundbreaking
+                        research investigating the impact of{" "}
+                        <strong>AI-generated deepfakes</strong> on teenage
+                        digital safety and well-being.
+                      </BulletItem>
+                      <BulletItem>
+                        Designed and implemented{" "}
+                        <strong>three comprehensive qualitative surveys</strong>{" "}
+                        to gather data on the psychological and behavioral
+                        effects of deepfake technology on teenagers.
+                      </BulletItem>
+                      <BulletItem>
+                        Contributing to the development of strategies and
+                        recommendations for protecting teenagers in an
+                        increasingly AI-driven digital landscape.
+                      </BulletItem>
+                    </BulletList>
+                  </ExperienceDescription>
+                </ExperienceCard>
+
+                <ExperienceCard variants={cardVariants}>
+                  <ExperienceCardHeader>
+                    <CompanyLogo>
+                      <BsBook />
+                    </CompanyLogo>
+                    <ExperienceInfo>
+                      <CompanyName>
+                        Wake Forest University School of Medicine
+                      </CompanyName>
+                      <Position>
+                        Research Assistant - Department of Plastic and
+                        Reconstructive Surgery
+                      </Position>
+                      <Duration>July 2024 - September 2024</Duration>
+                    </ExperienceInfo>
+                  </ExperienceCardHeader>
+                  <ExperienceDescription>
+                    <BulletList>
+                      <BulletItem>
+                        Developed an extensive suite of{" "}
+                        <strong>
+                          over 30 sophisticated data visualizations
+                        </strong>{" "}
+                        using <strong>Python</strong>, <strong>Pandas</strong>,{" "}
+                        <strong>Vega-Altair</strong>, and{" "}
+                        <strong>Seaborn</strong> to analyze and communicate
+                        cleft palate surgical outcomes.
+                      </BulletItem>
+                      <BulletItem>
+                        Created innovative visualization techniques including
+                        traffic light strip plots, box-and-whisker plots, and
+                        histograms to effectively communicate patient outcomes
+                        across different age groups.
+                      </BulletItem>
+                      <BulletItem>
+                        Co-authored a research poster that earned{" "}
+                        <strong>3rd place among 150 submissions</strong> at the
+                        prestigious American Cleft Palate Craniofacial
+                        Association Conference.
+                      </BulletItem>
+                    </BulletList>
+                    <ResearchPoster
+                      src={getAssetPath("/assets/Cleft-Poster.jpeg")}
+                    />
+                  </ExperienceDescription>
+                </ExperienceCard>
+              </motion.div>
+            )}
+          </InView>
+        )}
+
         {activeTab === "education" && (
           <InView threshold={0.1} triggerOnce>
             {({ inView, ref }) => (
@@ -423,4 +682,3 @@ const Experience: React.FC = () => {
 };
 
 export default Experience;
- 

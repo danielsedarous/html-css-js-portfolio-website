@@ -1,0 +1,22 @@
+{
+  "name": "daniel-sedarous-portfolio",
+  "version": "1.0.0",
+  "description": "Daniel Sedarous Portfolio Website",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd react-portfolio && npm start",
+    "install": "cd react-portfolio && npm install",
+    "build": "cd react-portfolio && npm run build"
+  },
+  "keywords": [
+    "portfolio",
+    "react",
+    "typescript",
+    "styled-components"
+  ],
+  "author": "Daniel Sedarous",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react-scroll": "^1.8.10"
+  }
+}

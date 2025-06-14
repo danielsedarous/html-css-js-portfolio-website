@@ -60,9 +60,16 @@ const ContactInfo = styled.div``;
 
 const ContactCardContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   margin-bottom: 2rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ContactCard = styled(motion.div)`
@@ -82,15 +89,24 @@ const ContactCard = styled(motion.div)`
 `;
 
 const ContactCardIcon = styled.div`
-  font-size: 1.5rem;
-  color: var(--primary-color);
-  background-color: rgba(41, 120, 181, 0.1);
   width: 50px;
   height: 50px;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
+  background-color: rgba(41, 120, 181, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--primary-color);
+  overflow: hidden;
+
+  svg {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+  }
 `;
 
 const ContactCardContent = styled.div``;
