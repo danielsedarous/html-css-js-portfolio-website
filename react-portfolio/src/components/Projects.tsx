@@ -223,8 +223,8 @@ const Projects: React.FC = () => {
       category: "Software",
       image: getAssetPath("/assets/Maps-image (2).png"),
       description:
-        "A mapping application that provides directions and location services with customized algorithms for finding the shortest path between destinations.",
-      techStack: ["Java", "Algorithms", "Data Structures"],
+        "A mapping application which helps correlate broadband connectivity with redlining data from the US Census Bureau.",
+      techStack: ["Java", "JavaScript", "Geo Mapping"],
       githubLink: "https://github.com/danielsedarous/Maps.git",
       demoLink: "",
       filter: ["all", "software", "backend"],

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { Link } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaEnvelope, FaArrowUp } from "react-icons/fa";
 
 const FooterSection = styled.footer`
@@ -123,11 +123,12 @@ const FooterLink = styled.li`
   margin-bottom: 0.8rem;
 `;
 
-const FooterNavLink = styled(Link)`
+const FooterNavLink = styled(RouterLink)`
   color: #bbb;
   font-size: 1rem;
   transition: var(--transition);
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     color: var(--primary-color);
@@ -240,59 +241,19 @@ const Footer: React.FC = () => {
             <FooterTitle>Quick Links</FooterTitle>
             <FooterLinks>
               <FooterLink>
-                <FooterNavLink
-                  to="home"
-                  spy={true}
-                  smooth={true}
-                  offset={-80}
-                  duration={500}
-                >
-                  Home
-                </FooterNavLink>
+                <FooterNavLink to="/">Home</FooterNavLink>
               </FooterLink>
               <FooterLink>
-                <FooterNavLink
-                  to="about"
-                  spy={true}
-                  smooth={true}
-                  offset={-80}
-                  duration={500}
-                >
-                  About
-                </FooterNavLink>
+                <FooterNavLink to="/about">About</FooterNavLink>
               </FooterLink>
               <FooterLink>
-                <FooterNavLink
-                  to="experience"
-                  spy={true}
-                  smooth={true}
-                  offset={-80}
-                  duration={500}
-                >
-                  Experience
-                </FooterNavLink>
+                <FooterNavLink to="/experience">Experience</FooterNavLink>
               </FooterLink>
               <FooterLink>
-                <FooterNavLink
-                  to="projects"
-                  spy={true}
-                  smooth={true}
-                  offset={-80}
-                  duration={500}
-                >
-                  Projects
-                </FooterNavLink>
+                <FooterNavLink to="/projects">Projects</FooterNavLink>
               </FooterLink>
               <FooterLink>
-                <FooterNavLink
-                  to="contact"
-                  spy={true}
-                  smooth={true}
-                  offset={-80}
-                  duration={500}
-                >
-                  Contact
-                </FooterNavLink>
+                <FooterNavLink to="/contact">Contact</FooterNavLink>
               </FooterLink>
             </FooterLinks>
           </FooterColumn>
@@ -327,11 +288,11 @@ const Footer: React.FC = () => {
           Rights Reserved
         </FooterCopyright>
 
-        <Link to="home" spy={true} smooth={true} offset={-80} duration={800}>
+        <RouterLink to="/">
           <ScrollToTop whileHover={{ y: -5 }}>
             <FaArrowUp />
           </ScrollToTop>
-        </Link>
+        </RouterLink>
       </FooterBottom>
     </FooterSection>
   );

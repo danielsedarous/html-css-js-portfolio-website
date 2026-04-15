@@ -250,7 +250,7 @@ const Hero: React.FC = () => {
               whileTap={{ scale: 0.95 }}
               onClick={() =>
                 window.open(
-                  getAssetPath("/assets/Danny_s_Resume.pdf"),
+                  getAssetPath("/assets/Danny_s_Resume_BCG.pdf"),
                   "_blank"
                 )
               }

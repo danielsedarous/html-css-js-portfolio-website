@@ -15,7 +15,6 @@ import {
   FaGraduationCap,
 } from "react-icons/fa";
 import { SiTypescript, SiJavascript } from "react-icons/si";
-import { BsBuilding, BsBook } from "react-icons/bs";
 import { getAssetPath } from "../utils/assetUtils";
 
 const ExperienceSection = styled.section`
@@ -499,7 +498,6 @@ const Experience: React.FC = () => {
                 <ExperienceCard variants={cardVariants}>
                   <ExperienceCardHeader>
                     <CompanyLogo>
-                      <BsBuilding />
                     </CompanyLogo>
                     <ExperienceInfo>
                       <CompanyName>
@@ -547,7 +545,6 @@ const Experience: React.FC = () => {
                 <ExperienceCard variants={cardVariants}>
                   <ExperienceCardHeader>
                     <CompanyLogo>
-                      <BsBook />
                     </CompanyLogo>
                     <ExperienceInfo>
                       <CompanyName>Brown University</CompanyName>
@@ -584,7 +581,6 @@ const Experience: React.FC = () => {
                 <ExperienceCard variants={cardVariants}>
                   <ExperienceCardHeader>
                     <CompanyLogo>
-                      <BsBook />
                     </CompanyLogo>
                     <ExperienceInfo>
                       <CompanyName>

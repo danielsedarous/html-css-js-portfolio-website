@@ -18,5 +18,8 @@
   "license": "MIT",
   "devDependencies": {
     "@types/react-scroll": "^1.8.10"
+  },
+  "dependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
